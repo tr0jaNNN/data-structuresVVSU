@@ -18,9 +18,14 @@
             <option value="bst">BST</option>
           </select>
           <select name="op">
-            <option value="push">push / enqueue / insert</option>
-            <option value="pop">pop / dequeue / delete</option>
-            <option value="search">search (BST only)</option>
+            <!-- include all operations; server logic will apply relevant ones based on selected DS -->
+            <option value="push">push</option>
+            <option value="pop">pop</option>
+            <option value="enqueue">enqueue</option>
+            <option value="dequeue">dequeue</option>
+            <option value="insert">insert</option>
+            <option value="delete">delete</option>
+            <option value="search">search</option>
           </select>
           <input type="text" name="value" placeholder="value (опционально)">
           <button type="submit">Выполнить</button>
@@ -46,7 +51,7 @@
           </div>
           <div class="panel bst">
             <h3>BST (уровни)</h3>
-            <pre>{{ state.bst_serialized | render_bst }}</pre>
+            <pre>{{ state.bst_serialized | render_bst | safe }}</pre>
           </div>
         </div>
       </div>
