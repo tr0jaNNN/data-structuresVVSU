@@ -1,8 +1,10 @@
 from flask import Flask, render_template, request, redirect, url_for
-from data_structures import DataStructuresManager
+from data_structures import DataStructuresManager, bst_levels
 import copy
 
 app = Flask(__name__)
+# register template filter for BST rendering
+app.jinja_env.filters['render_bst'] = bst_levels
 
 # Single global manager for the demo
 mgr = DataStructuresManager()
