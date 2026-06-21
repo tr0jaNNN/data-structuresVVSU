@@ -1,0 +1,11 @@
+body { font-family: Arial, Helvetica, sans-serif; margin: 20px; background: #f6f8fa; }
+.container { max-width: 980px; margin: auto; background: white; padding: 20px; border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
+.controls { display: flex; gap: 12px; align-items: center; margin-bottom: 16px; }
+.op-form select, .op-form input { padding: 6px; margin-right: 6px; }
+.op-form button { padding: 6px 12px; }
+.nav-form button { padding: 6px 8px; margin-right: 4px; }
+.panels { display: flex; gap: 12px; }
+.panel { flex: 1; background: #fff; border: 1px solid #e1e4e8; padding: 8px; border-radius: 4px; min-height: 120px; }
+.panel pre { white-space: pre-wrap; word-wrap: break-word; }
+.panel.bst pre { font-family: monospace; }
+.log { margin-top: 16px; }

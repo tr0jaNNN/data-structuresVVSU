@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>A-04 Demonstrator — Web</title>
+    <link rel="stylesheet" href="/static/style.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>A-04: Демонстратор структур данных (веб)</h1>
+
+      <div class="controls">
+        <form action="/operate" method="post" class="op-form">
+          <select name="ds">
+            <option value="stack">Stack</option>
+            <option value="queue">Queue</option>
+            <option value="bst">BST</option>
+          </select>
+          <select name="op">
+            <option value="push">push / enqueue / insert</option>
+            <option value="pop">pop / dequeue / delete</option>
+            <option value="search">search (BST only)</option>
+          </select>
+          <input type="text" name="value" placeholder="value (опционально)">
+          <button type="submit">Выполнить</button>
+        </form>
+
+        <form action="/navigate" method="post" class="nav-form">
+          <button name="action" value="prev">◀ Предыдущий шаг</button>
+          <button name="action" value="next">Следующий шаг ▶</button>
+          <button name="action" value="reset">Сброс</button>
+        </form>
+      </div>
+
+      <div class="state">
+        <h2>Состояние (шаг {{ snap_index }} из {{ max_index }})</h2>
+        <div class="panels">
+          <div class="panel">
+            <h3>Stack</h3>
+            <pre>{{ state.stack }}</pre>
+          </div>
+          <div class="panel">
+            <h3>Queue</h3>
+            <pre>{{ state.queue }}</pre>
+          </div>
+          <div class="panel bst">
+            <h3>BST (уровни)</h3>
+            <pre>{{ state.bst_serialized | render_bst }}</pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="log">
+        <h3>Журнал операций (до текущего шага)</h3>
+        <ol>
+        {% for e in log %}
+          <li>{{ e }}</li>
+        {% endfor %}
+        </ol>
+      </div>
+
+      <footer>
+        <p>Web-demo: Flask + серверная ASCII визуализация BST. Интерфейс для обучения.</p>
+      </footer>
+    </div>
+  </body>
+</html>
